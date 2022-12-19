@@ -1,3 +1,11 @@
+'''
+Author: Zongzi haolin1021@gmail.com
+Date: 2022-12-16 13:29:54
+LastEditors: Zongzi haolin1021@gmail.com
+LastEditTime: 2022-12-19 14:29:58
+FilePath: /blog/typeidea/typeidea/urls.py
+Description: 
+'''
 """typeidea URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +23,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from .custom_site import custom_site
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', custom_site.urls),
+    path('super_admin/', admin.site.urls),
 ]

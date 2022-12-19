@@ -2,8 +2,8 @@
 Author: Zongzi haolin1021@gmail.com
 Date: 2022-12-16 13:38:13
 LastEditors: Zongzi haolin1021@gmail.com
-LastEditTime: 2022-12-16 14:37:38
-FilePath: /blog/home/data/nas/code/django/blog/typeidea/blog/models.py
+LastEditTime: 2022-12-19 13:23:38
+FilePath: /blog/typeidea/blog/models.py
 Description: 
 '''
 from django.contrib.auth.models import User
@@ -27,7 +27,9 @@ class Category(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = '分类'
-
+    
+    def __str__(self) -> str:
+        return self.name
 
 class Tag(models.Model):
     STATUS_NORMAL = 1
@@ -45,6 +47,9 @@ class Tag(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = '标签'
+    
+    def __str__(self) -> str:
+        return self.name
 
 class Post(models.Model):
     STATUS_NORMAL = 1
@@ -69,3 +74,6 @@ class Post(models.Model):
     class Meta:
         verbose_name = verbose_name_plural = '文章'
         ordering = ['-id']  #根据id进行降序排列
+    
+    def __str__(self) -> str:
+        return self.title    
